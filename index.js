@@ -9,6 +9,21 @@ appId: "1:997934529700:web:77f1e069816e07b6c77a31"
 };
 
 firebase.initializeApp(config);
+database = firebase.database();
+
+var ref= database.ref('Data');
+ref.on('value', gotData, errData);
+
+function gotData(data){
+	console.log(data);
+}
+
+function errData(err){
+	console.log('error!');
+	console.log(err);
+}
+
+
 
 // var photoSave = 'NULL';
 var emailSave;
